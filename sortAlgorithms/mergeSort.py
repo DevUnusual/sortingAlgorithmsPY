@@ -4,7 +4,7 @@
 """
 
 import numpy as np
-from math import floor
+from validador import val
 
 def merge(v, i, m, f):
     if i == f:
@@ -35,15 +35,15 @@ def merge(v, i, m, f):
             k += 1
 
 
-def mergesort(v, i, f):
+def mergeSort(v, i, f):
     if i < f:
-        m = floor((i+f)/2)
-        mergesort(v,i,m)
-        mergesort(v,m+1,f)
+        m = int(np.floor((i+f)/2))
+        mergeSort(v,i,m)
+        mergeSort(v,m+1,f)
         merge(v,i,m,f)
 
 
-v = [10, 6, 8, 2, 4, 1]
-print(f'antes : {v}')
-mergesort(v, 0, (len(v)-1))
-print(f'depois: {v}')
+if __name__ == '__main__':
+  rdarr = np.random.randint(0, 10000, 5000)
+  mergeSort(rdarr, 0, len(rdarr)-1)
+  print(val(rdarr))

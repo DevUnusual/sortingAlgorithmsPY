@@ -1,4 +1,5 @@
-from math import floor
+import numpy as np
+from validador import val
 
 def insertionSort(v):
     for i in range(1, len(v)):
@@ -9,7 +10,7 @@ def insertionSort(v):
             j -= 1
         v[j+1] = x
 
-v = [10, 6, 8, 2, 4, 1]
-print(f'antes : {v}')
-insertionSort(v)
-print(f'depois: {v}')
+if __name__ == '__main__':
+  rdarr = np.random.randint(0, 10000, 5000)
+  insertionSort(rdarr)
+  print(val(rdarr))
